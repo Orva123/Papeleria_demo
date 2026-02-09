@@ -1,0 +1,267 @@
+/* 1. Reset General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #1a1a1a;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- 2. Fondo Animado de Colores --- */
+#fondo-animado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Más al fondo */
+    background: linear-gradient(125deg, #87CEFA, #FFB6C1, #FFFACD, #87CEFA);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#fondo-animado::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(80px); /* Difumina los colores para efecto nube */
+    -webkit-backdrop-filter: blur(80px);
+}
+
+/* --- 3. Navegación Glassmorphism --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Efecto Cristal */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.logo img {
+    width: 110px;
+    height: auto;
+    display: block;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #222;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #000;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.btn-cart {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-cart:hover {
+    background: #000;
+    transform: translateY(-2px);
+}
+
+/* --- 4. Hero Section --- */
+.hero {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 750px;
+    padding: 50px;
+    /* Contenedor Glassmorphism opcional */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #111;
+}
+
+.hero-content p {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+.cta-button {
+    background: rgba(255, 255, 255, 0.2); /* Botón efecto cristal */
+    color: #000;
+    padding: 18px 45px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #000;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+
+
+
+/* --- 6. Sección de Productos --- */
+.products-container {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjeta de Producto Glass */
+.product-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.product-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    background: #f0f0f0;
+}
+
+.product-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #000;
+    color: #fff;
+    padding: 5px 12px;
+    font-size: 0.7rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.product-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.btn-add {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #000;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-add:hover {
+    background: #333;
+}
+
+
+
+
+
+
+
+/* --- 5. Responsive --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-content { padding: 20px; background: none; border: none; }
+}
