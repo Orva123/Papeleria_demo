@@ -3,38 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Tienda Minimalista</title>
+    <title>Papelería & Miscelánea | Tu Tienda Favorita</title>
     <link rel="stylesheet" href="/Style/style.css">
 </head>
 <body>
 
     <div id="fondo-animado"></div>
 
+    <div class="announcement-bar">
+        <span>✨ ¡SUPER OFERTAS! 20% de descuento en toda la línea escolar 🎨</span>
+    </div>
+
     <nav>
         <div class="logo">
-            <img src="/img/logo.jpg" alt="Logo">
+            <img src="/img/logo (1).png" alt="Logo">
         </div>
+
+        <div class="search-container">
+            <input type="text" placeholder="¿Qué buscas hoy?" id="search-input">
+            <button class="search-btn">🔍</button>
+        </div>
+
         <ul class="nav-links">
-            <li><a href="#productos">Productos</a></li>
             <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
+
         <div class="nav-actions">
-            <a href="#" class="btn-cart">Carrito (0)</a>
+            <a href="#" class="cart-icon-container">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-count">0</span>
+            </a>
         </div>
     </nav>
 
-
-<header class="hero">
-        <div class="hero-content">
-            <h1>Calidad en cada detalle.</h1>
-            <p>Lo más vendido esta semana. Diseño minimalista para tu día a día.</p>
+    <section class="promo-banner">
+        <div class="promo-content">
+            <span class="promo-tag">OFERTA DE LA SEMANA</span>
+            <h2>¡Combos Escolares <br>desde $15.000! 🎒</h2>
+            <p>Lo bueno, bonito y barato está aquí.</p>
+            <a href="#productos" class="promo-btn">¡Comprar Ahora!</a>
         </div>
-    </header>
+    </section>
+
+    <section class="categories">
+        <div class="category-item">
+            <div class="cat-circle">🎨</div>
+            <span>Papelería</span>
+        </div>
+        <div class="category-item">
+            <div class="cat-circle">🧸</div>
+            <span>Juguetes</span>
+        </div>
+        <div class="category-item">
+            <div class="cat-circle">✨</div>
+            <span>Lociones</span>
+        </div>
+        <div class="category-item">
+            <div class="cat-circle">🎒</div>
+            <span>Bolsos</span>
+        </div>
+    </section>
 
     <section id="productos" class="products-container">
         <h2 class="section-title">Productos Destacados</h2>
-        
         <div class="products-grid">
             <div class="product-card">
                 <div class="product-img-wrapper">
@@ -42,9 +74,9 @@
                     <span class="badge">Top Ventas</span>
                 </div>
                 <div class="product-info">
-                    <h3>Reloj Minimal Gold</h3>
-                    <p class="price">$120.00</p>
-                    <button class="btn-add">Añadir al carrito</button>
+                    <h3>Kit Escolar Pro</h3>
+                    <p class="price">$12.500</p>
+                    <button class="btn-add">Añadir</button>
                 </div>
             </div>
 
@@ -53,9 +85,9 @@
                     <img src="/img/producto2.jpg" alt="Producto 2">
                 </div>
                 <div class="product-info">
-                    <h3>Auriculares Ghost</h3>
-                    <p class="price">$85.00</p>
-                    <button class="btn-add">Añadir al carrito</button>
+                    <h3>Loción Sweet Night</h3>
+                    <p class="price">$45.000</p>
+                    <button class="btn-add">Añadir</button>
                 </div>
             </div>
 
@@ -64,16 +96,18 @@
                     <img src="/img/producto3.jpg" alt="Producto 3">
                 </div>
                 <div class="product-info">
-                    <h3>Lámpara de Escritorio</h3>
-                    <p class="price">$45.00</p>
-                    <button class="btn-add">Añadir al carrito</button>
+                    <h3>Morral Ergonómico</h3>
+                    <p class="price">$85.000</p>
+                    <button class="btn-add">Añadir</button>
                 </div>
             </div>
-        </div>
+            
+            </div>
     </section>
 
-
-
+    <a href="https://wa.me/tu-numero-aqui" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>

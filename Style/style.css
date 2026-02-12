@@ -20,7 +20,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -2; /* Más al fondo */
+    z-index: -2;
     background: linear-gradient(125deg, #87CEFA, #FFB6C1, #FFFACD, #87CEFA);
     background-size: 400% 400%;
     animation: gradientMove 15s ease infinite;
@@ -40,7 +40,7 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(80px); /* Difumina los colores para efecto nube */
+    backdrop-filter: blur(80px);
     -webkit-backdrop-filter: blur(80px);
 }
 
@@ -53,13 +53,202 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* Efecto Cristal */
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
+
+
+
+
+
+/* --- Ajustes de Navegación --- */
+nav {
+    gap: 20px; /* Espacio entre logo, buscador y links */
+}
+
+/* El Buscador */
+.search-container {
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    padding: 5px 15px;
+    margin: 0 20px;
+}
+
+#search-input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 8px;
+    outline: none;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.search-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.1rem;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.search-btn:hover { opacity: 1; }
+
+/* El Carrito Minimalista */
+.cart-icon-container {
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: 0.3s;
+}
+
+.cart-icon-container:hover {
+    background: #000;
+}
+
+.cart-icon-container:hover .cart-icon {
+    filter: invert(1); /* Cambia el emoji a blanco si el fondo se pone negro */
+}
+
+.cart-icon {
+    font-size: 1.4rem;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #FFB6C1; /* Rosa pastel de nuestra marca */
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+}
+
+/* Ocultar links en pantallas pequeñas para que no choquen con el buscador */
+@media (max-width: 900px) {
+    .nav-links { display: none; }
+    .search-container { margin: 0 10px; }
+}
+
+
+
+
+
+
+/* 1. Reset y Base */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+body { background-color: #fff; color: #1a1a1a; overflow-x: hidden; }
+
+/* --- 2. Fondo y Anuncios --- */
+#fondo-animado { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: linear-gradient(125deg, #87CEFA, #FFB6C1, #FFFACD, #87CEFA); background-size: 400% 400%; animation: gradientMove 15s ease infinite; }
+@keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+#fondo-animado::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(80px); -webkit-backdrop-filter: blur(80px); }
+
+.announcement-bar { background: #000; color: #fff; text-align: center; padding: 8px; font-size: 0.8rem; font-weight: 700; }
+
+/* --- 3. Navegación Responsiva --- */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; position: sticky; top: 0; z-index: 1000; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.3); gap: 15px; }
+
+.logo img { width: 80px; height: auto; }
+
+.search-container { flex: 1; max-width: 400px; display: flex; background: rgba(255, 255, 255, 0.4); border-radius: 50px; padding: 2px 15px; border: 1px solid rgba(255, 255, 255, 0.5); }
+#search-input { width: 100%; border: none; background: transparent; padding: 8px; outline: none; font-size: 0.9rem; }
+.search-btn { border: none; background: transparent; cursor: pointer; }
+
+.cart-icon-container { position: relative; padding: 8px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; text-decoration: none; }
+.cart-count { position: absolute; top: -5px; right: -5px; background: #FFB6C1; color: #000; font-size: 0.7rem; font-weight: bold; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+/* --- 4. Sección de Promociones (Banner) --- */
+.promo-banner { margin: 20px 5%; padding: 40px; background: linear-gradient(45deg, #FFB6C1, #FFFACD); border-radius: 25px; display: flex; align-items: center; min-height: 250px; border: 1px solid #fff; }
+.promo-tag { background: #000; color: #fff; padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: bold; }
+.promo-banner h2 { font-size: clamp(1.5rem, 5vw, 2.5rem); margin: 10px 0; line-height: 1.1; }
+.promo-btn { display: inline-block; padding: 12px 25px; background: #000; color: #fff; text-decoration: none; border-radius: 10px; font-weight: bold; margin-top: 10px; }
+
+/* --- 5. Categorías --- */
+.categories { display: flex; justify-content: center; gap: 20px; padding: 20px 5%; flex-wrap: wrap; }
+.cat-circle { width: 60px; height: 60px; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; border: 1px solid #fff; margin-bottom: 5px; }
+.category-item span { font-size: 0.8rem; font-weight: 700; }
+
+/* --- 6. Grid de Productos (2 por fila en móvil) --- */
+.products-container { padding: 30px 5%; max-width: 1200px; margin: 0 auto; }
+.section-title { text-align: center; margin-bottom: 30px; font-size: 1.8rem; }
+
+.products-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas por defecto (móvil) */
+    gap: 15px; 
+}
+
+.product-card { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 20px; padding: 12px; }
+.product-img-wrapper { width: 100%; aspect-ratio: 1/1; border-radius: 15px; overflow: hidden; margin-bottom: 10px; }
+.product-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+.product-info h3 { font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.price { font-weight: 800; font-size: 1.1rem; margin: 5px 0; }
+.btn-add { width: 100%; padding: 10px; background: #000; color: #fff; border: none; border-radius: 8px; font-size: 0.8rem; font-weight: 600; }
+
+/* --- 7. Responsividad Media Queries --- */
+
+/* Pantallas grandes (PC) */
+@media (min-width: 768px) {
+    .products-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+    .logo img { width: 110px; }
+    .product-card { padding: 20px; }
+    .product-info h3 { font-size: 1.1rem; white-space: normal; }
+    .price { font-size: 1.4rem; }
+    .btn-add { font-size: 0.9rem; }
+}
+
+/* Pantallas pequeñas (Móvil) */
+@media (max-width: 600px) {
+    .nav-links { display: none; } /* Ocultamos links de texto en móvil */
+    .search-container { max-width: 180px; } /* Buscador más pequeño */
+    .promo-banner { padding: 30px 20px; }
+    .whatsapp-btn { width: 55px; height: 55px; bottom: 15px; right: 15px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .logo img {
     width: 110px;
@@ -83,7 +272,6 @@ nav {
 
 .nav-links a:hover {
     color: #000;
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
 .btn-cart {
@@ -96,14 +284,9 @@ nav {
     transition: 0.3s;
 }
 
-.btn-cart:hover {
-    background: #000;
-    transform: translateY(-2px);
-}
-
-/* --- 4. Hero Section --- */
+/* --- 4. Hero Section (Ajustado para que asomen productos) --- */
 .hero {
-    height: 85vh;
+    height: 60vh; /* Altura reducida para UX */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,62 +296,70 @@ nav {
 .hero-content {
     text-align: center;
     max-width: 750px;
-    padding: 50px;
-    /* Contenedor Glassmorphism opcional */
+    padding: 40px;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .hero-content h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 20px;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 15px;
     font-weight: 800;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
     color: #111;
 }
 
-.hero-content p {
-    color: #333;
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    font-weight: 500;
+/* --- NUEVAS CATEGORÍAS --- */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 5%;
+    flex-wrap: wrap;
 }
 
-.cta-button {
-    background: rgba(255, 255, 255, 0.2); /* Botón efecto cristal */
-    color: #000;
-    padding: 18px 45px;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+.category-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.category-item:hover { transform: scale(1.15); }
+
+.cat-circle {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.cta-button:hover {
-    background: #000;
-    color: #fff;
-    transform: scale(1.05);
+.category-item span {
+    font-weight: 600;
+    color: #222;
 }
-
-
-
 
 /* --- 6. Sección de Productos --- */
 .products-container {
-    padding: 60px 5%;
+    padding: 40px 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .section-title {
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 40px;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .products-grid {
@@ -177,20 +368,18 @@ nav {
     gap: 30px;
 }
 
-/* Tarjeta de Producto Glass */
 .product-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
     padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: 0.3s;
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .product-img-wrapper {
@@ -198,70 +387,71 @@ nav {
     width: 100%;
     aspect-ratio: 1/1;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 18px;
     margin-bottom: 15px;
-    background: #f0f0f0;
 }
 
 .product-img-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.product-card:hover img {
-    transform: scale(1.1);
 }
 
 .badge {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background: #000;
-    color: #fff;
-    padding: 5px 12px;
-    font-size: 0.7rem;
+    top: 12px;
+    left: 12px;
+    background: #FFB6C1; /* Rosa pastel para llamar atención */
+    color: #000;
+    padding: 6px 14px;
+    font-weight: bold;
+    font-size: 0.75rem;
     border-radius: 20px;
-    text-transform: uppercase;
-}
-
-.product-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
 }
 
 .price {
-    font-weight: 700;
-    font-size: 1.3rem;
-    color: #000;
-    margin-bottom: 15px;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: #111;
+    margin: 10px 0;
 }
 
 .btn-add {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border: none;
     background: #000;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
     font-weight: 600;
     transition: 0.3s;
 }
 
-.btn-add:hover {
-    background: #333;
+/* --- WHATSAPP FLOTANTE --- */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    z-index: 2000;
+    transition: 0.3s;
 }
 
-
-
-
-
-
+.whatsapp-btn:hover { transform: rotate(15deg) scale(1.1); }
+.whatsapp-btn img { width: 35px; }
 
 /* --- 5. Responsive --- */
 @media (max-width: 768px) {
     .nav-links { display: none; }
-    .hero-content { padding: 20px; background: none; border: none; }
+    .hero { height: auto; padding: 100px 5%; }
+    .categories { gap: 15px; }
+    .cat-circle { width: 65px; height: 65px; font-size: 1.5rem; }
 }
